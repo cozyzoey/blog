@@ -1,14 +1,25 @@
 import { graphql, PageProps, HeadProps } from "gatsby";
-import Layout from "../../components/Layout";
+import Layout from "components/Layout";
+import { Link } from "gatsby";
 
 export default function BlogPage({
   data: {
-    allMarkdownRemark: { edges },
+    allMarkdownRemark: { edges: posts },
   },
 }: PageProps<Queries.BlogRollQuery>) {
-  console.log(edges);
-
-  return <Layout>블로그 페이지입니다</Layout>;
+  return (
+    <Layout>
+      {posts.map(({ node }, idx) => {
+        const pathname = node.fields?.slug ?? "/blog";
+        return (
+          <div key={node.id}>
+            <Link to={pathname}></Link>
+            <Link to={pathname}>{node.frontmatter?.title}</Link>
+          </div>
+        );
+      })}
+    </Layout>
+  );
 }
 
 export const Head = ({}: HeadProps) => {
