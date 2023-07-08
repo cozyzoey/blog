@@ -1,4 +1,4 @@
-import Layout from "../components/Llayout";
+import Layout from "../components/layout";
 import BlogPostTemplate from "../components/blog-post-template";
 import { HTMLContentRenderer } from "../components/content-renderer";
 import { graphql, PageProps } from "gatsby";
