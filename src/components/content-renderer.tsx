@@ -2,7 +2,7 @@ export interface ContentRendererProps {
   content: string;
 }
 
-export default function ContentRenderer({ content }: ContentRendererProps) {
+export default function ({ content }: ContentRendererProps) {
   return <div>{content}</div>;
 }
 

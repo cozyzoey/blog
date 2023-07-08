@@ -1,23 +1,29 @@
 import { graphql, PageProps, HeadProps } from "gatsby";
 import Layout from "components/layout";
+import BlogPostCard from "components/blog-post-card";
 import { Link } from "gatsby";
 
-export default function BlogPage({
+export default function ({
   data: {
     allMarkdownRemark: { edges: posts },
   },
 }: PageProps<Queries.BlogRollQuery>) {
   return (
     <Layout>
-      {posts.map(({ node }, idx) => {
-        const pathname = node.fields?.slug ?? "/blog";
-        return (
-          <div key={node.id}>
-            <Link to={pathname}></Link>
-            <Link to={pathname}>{node.frontmatter?.title}</Link>
-          </div>
-        );
-      })}
+      <ul className="grid grid-cols-3 gap-10">
+        {posts.map(({ node }) => {
+          return (
+            <BlogPostCard
+              img=""
+              slug={node.fields?.slug ?? "/blog"}
+              title={node.frontmatter?.title ?? ""}
+              upperCaption={node.frontmatter?.date ?? ""}
+              lowerCaption={<Link to={"/"}>tags</Link>}
+              key={node.id}
+            />
+          );
+        })}
+      </ul>
     </Layout>
   );
 }

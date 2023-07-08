@@ -3,7 +3,7 @@ import { HeadProps } from "gatsby";
 import Header from "components/header";
 import Footer from "components/footer";
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function ({ children }: { children: ReactNode }) {
   return (
     <div className="max-w-screen-lg mx-auto flex flex-col gap-y-12">
       <Header />
