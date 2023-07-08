@@ -1,11 +1,9 @@
-import Layout from "../components/layout";
-import ContentRenderer, {
-  HTMLContentRenderer,
-  ContentRendererProps,
-} from "../components/content-renderer";
+import Layout from "../components/Llayout";
+import BlogPostTemplate from "../components/blog-post-template";
+import { HTMLContentRenderer } from "../components/content-renderer";
 import { graphql, PageProps } from "gatsby";
 
-export default function BlogPost({
+export default function ({
   data: { markdownRemark: post },
 }: PageProps<Queries.BlogPostByIDQuery>) {
   if (!post) return null;
@@ -13,6 +11,7 @@ export default function BlogPost({
     <Layout>
       <BlogPostTemplate
         content={post.html ?? ""}
+        date={post.frontmatter?.date ?? ""}
         contentComponent={HTMLContentRenderer}
         description={post.frontmatter?.description ?? ""}
         tags={post.frontmatter?.tags ?? ["프론트엔드"]}
@@ -21,30 +20,6 @@ export default function BlogPost({
     </Layout>
   );
 }
-
-export const BlogPostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
-}: {
-  content: string;
-  contentComponent?: ({ content }: ContentRendererProps) => JSX.Element;
-  description: string;
-  tags: ReadonlyArray<string | null>;
-  title: string;
-}) => {
-  const ContentComponent = contentComponent || ContentRenderer;
-  return (
-    <div>
-      <ContentComponent content={content} />
-      {description}
-      {tags}
-      {title}
-    </div>
-  );
-};
 
 export const query = graphql`
   query BlogPostByID($id: String!) {

@@ -1,5 +1,5 @@
 import { graphql, PageProps, HeadProps } from "gatsby";
-import Layout from "components/layout";
+import Layout from "components/Llayout";
 import BlogPostCard from "components/blog-post-card";
 import { Link } from "gatsby";
 
