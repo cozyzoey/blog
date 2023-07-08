@@ -1,5 +1,5 @@
 import { graphql, PageProps, HeadProps } from "gatsby";
-import Layout from "components/Layout";
+import Layout from "components/layout";
 import { Link } from "gatsby";
 
 export default function BlogPage({

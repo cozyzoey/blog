@@ -1,8 +1,8 @@
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import ContentRenderer, {
   HTMLContentRenderer,
   ContentRendererProps,
-} from "../components/ContentRenderer";
+} from "../components/content-renderer";
 import { graphql, PageProps } from "gatsby";
 
 export default function BlogPost({
