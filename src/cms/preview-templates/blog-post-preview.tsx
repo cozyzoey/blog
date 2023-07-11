@@ -7,15 +7,14 @@ export default function BlogPostPreview({
   entry: { getIn: Function };
   widgetFor: Function;
 }) {
-  const tags = entry.getIn(["data", "tags"]);
-  const date = entry.getIn(["data", "date"]);
+  const data = entry.getIn(["data"]).toJS();
   return (
     <BlogPostTemplate
       content={widgetFor("body")}
-      date={date && date.toJS()}
-      description={entry.getIn(["data", "description"])}
-      tags={tags && tags.toJS()}
-      title={entry.getIn(["data", "title"])}
+      date={new Date(data.date).toLocaleDateString()}
+      description={data.description}
+      tags={data.tags}
+      title={data.title}
     />
   );
 }

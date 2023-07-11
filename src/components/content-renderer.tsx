@@ -1,8 +1,7 @@
-import { HtmlHTMLAttributes } from "react";
+import { ReactNode } from "react";
 
-export interface ContentRendererProps
-  extends HtmlHTMLAttributes<HTMLDivElement> {
-  content: string;
+export interface ContentRendererProps {
+  content: ReactNode;
 }
 
 const cn = "text-lg";
@@ -12,5 +11,5 @@ export default function ({ content }: ContentRendererProps) {
 }
 
 export const HTMLContentRenderer = ({ content }: ContentRendererProps) => (
-  <div className={cn} dangerouslySetInnerHTML={{ __html: content }} />
+  <div className={cn} dangerouslySetInnerHTML={{ __html: content as string }} />
 );
