@@ -35,7 +35,7 @@ export const Head = ({}: HeadProps) => {
 export const query = graphql`
   query BlogRoll {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
     ) {
       edges {
