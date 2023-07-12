@@ -9,8 +9,12 @@ backend:
     deleteMedia: "[skip ci] Delete “{{path}}”"
 
 local_backend: true
-media_folder: static/images
-public_folder: /images
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: dftuawd1d
+    api_key: 416666377153818
 
 collections:
   - name: "blog"

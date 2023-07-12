@@ -14,7 +14,7 @@ export default function ({
         {posts.map(({ node }) => {
           return (
             <BlogPostCard
-              img=""
+              img={node.frontmatter?.featuredimage ?? ""}
               slug={node.fields?.slug ?? "/blog"}
               title={node.frontmatter?.title ?? ""}
               upperCaption={node.frontmatter?.date ?? ""}
@@ -50,11 +50,7 @@ export const query = graphql`
             templateKey
             date(formatString: "MMMM DD, YYYY")
             featuredpost
-            featuredimage {
-              childImageSharp {
-                gatsbyImageData(width: 120, quality: 100, layout: CONSTRAINED)
-              }
-            }
+            featuredimage
           }
         }
       }
