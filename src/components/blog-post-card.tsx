@@ -16,12 +16,11 @@ export default function ({
   lowerCaption: ReactNode;
 } & HTMLAttributes<HTMLLIElement>) {
   return (
-    <li
-      className="rounded-lg p-4 bg-slate-100 hover:drop-shadow-xl hover:-translate-y-1 transition ease-in-out"
-      {...props}
-    >
-      <div>{<img src={img} />}</div>
-      <p className="mb-2">{upperCaption}</p>
+    <li className="w-full max-w-[300px]" {...props}>
+      <Link to={slug} className="block mb-3">
+        <img src={img} className="w-full aspect-[3/2] rounded-lg" />
+      </Link>
+      <p className="text-slate-500 mb-4">{upperCaption}</p>
       <Link to={slug} className="text-2xl font-bold line-clamp-2 mb-2">
         {title}
       </Link>
