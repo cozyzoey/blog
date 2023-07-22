@@ -1,4 +1,5 @@
 import ContentRenderer, { ContentRendererProps } from "./content-renderer";
+import dayjs from "dayjs";
 
 export default function ({
   content,
@@ -19,8 +20,8 @@ export default function ({
   return (
     <>
       <h1 className="text-4xl font-bold mb-4">{title}</h1>
-      <div className="text-xl font-light mb-16">
-        <time>{date}</time>
+      <div className="text-xl font-light mb-16 text-slate-500">
+        <time>{dayjs(date).format("YYYY.MM.DD")}</time>
       </div>
       <ContentComponent content={content} />
       {description}

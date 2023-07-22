@@ -9,12 +9,14 @@ export default function BlogPostPreview({
 }) {
   const data = entry.getIn(["data"]).toJS();
   return (
-    <BlogPostTemplate
-      content={widgetFor("body")}
-      date={new Date(data.date).toLocaleDateString()}
-      description={data.description}
-      tags={data.tags}
-      title={data.title}
-    />
+    <div className="py-12 px-6">
+      <BlogPostTemplate
+        content={widgetFor("body")}
+        date={new Date(data.date).toLocaleDateString()}
+        description={data.description}
+        tags={data.tags}
+        title={data.title}
+      />
+    </div>
   );
 }

@@ -4,7 +4,7 @@ export interface ContentRendererProps {
   content: ReactNode;
 }
 
-const cn = "text-lg";
+const cn = "markdown";
 
 export default function ({ content }: ContentRendererProps) {
   return <div className={cn}>{content}</div>;
