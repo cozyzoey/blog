@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "generate:css": "npx tailwindcss -i ./src/styles/global.css -o ./src/styles/output.css --watch",
+    "generate:css": "npx tailwindcss -i ./src/styles/global.css -o ./static/admin/preview.css --watch",
     "proxy": "npx netlify-cms-proxy-server",
     "dev": "run-p develop generate:css proxy"
   },

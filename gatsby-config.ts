@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
@@ -54,13 +57,6 @@ const config: GatsbyConfig = {
     },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "uploads",
-        path: `${__dirname}/static/images`,
-      },
-    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

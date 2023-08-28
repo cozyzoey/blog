@@ -18,7 +18,10 @@ export default function ({
   return (
     <li className="w-full max-w-[300px]" {...props}>
       <Link to={slug} className="block mb-3">
-        <img src={img} className="w-full aspect-[3/2] rounded-lg" />
+        <img
+          src={img}
+          className="w-full aspect-[3/2] rounded-lg object-contain"
+        />
       </Link>
       <p className="text-slate-500 mb-4">{upperCaption}</p>
       <Link to={slug} className="text-2xl font-bold line-clamp-2 mb-2">
