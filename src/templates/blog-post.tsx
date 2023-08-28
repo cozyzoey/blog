@@ -13,7 +13,6 @@ export default function ({
         content={post.html ?? ""}
         date={post.frontmatter?.date ?? ""}
         contentComponent={HTMLContentRenderer}
-        description={post.frontmatter?.description ?? ""}
         tags={post.frontmatter?.tags ?? ["프론트엔드"]}
         title={post.frontmatter?.title ?? ""}
       />

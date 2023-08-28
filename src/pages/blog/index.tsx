@@ -10,6 +10,7 @@ export default function ({
 }: PageProps<Queries.BlogRollQuery>) {
   return (
     <Layout>
+      <h1 className="text-4xl font-bold mb-14">Blog</h1>
       <ul className="grid grid-cols-3 gap-10">
         {posts.map(({ node }) => {
           return (
@@ -17,8 +18,8 @@ export default function ({
               img={node.frontmatter?.featuredimage ?? ""}
               slug={node.fields?.slug ?? "/blog"}
               title={node.frontmatter?.title ?? ""}
-              upperCaption={node.frontmatter?.date ?? ""}
-              lowerCaption={<Link to={"/"}>tags</Link>}
+              date={node.frontmatter?.date ?? ""}
+              tags={node.frontmatter?.tags ?? [""]}
               key={node.id}
             />
           );
@@ -40,7 +41,6 @@ export const query = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 400)
           id
           fields {
             slug
@@ -51,6 +51,7 @@ export const query = graphql`
             date(formatString: "MMMM DD, YYYY")
             featuredpost
             featuredimage
+            tags
           }
         }
       }

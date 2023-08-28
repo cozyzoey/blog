@@ -5,15 +5,15 @@ export default function ({
   img,
   slug,
   title,
-  upperCaption,
-  lowerCaption,
+  date,
+  tags,
   ...props
 }: {
   img: string;
   slug: string;
   title: string;
-  upperCaption: string;
-  lowerCaption: ReactNode;
+  date: string;
+  tags: ReadonlyArray<string | null>;
 } & HTMLAttributes<HTMLLIElement>) {
   return (
     <li className="w-full max-w-[300px]" {...props}>
@@ -23,11 +23,11 @@ export default function ({
           className="w-full aspect-[3/2] rounded-lg object-contain"
         />
       </Link>
-      <p className="text-slate-500 mb-4">{upperCaption}</p>
-      <Link to={slug} className="text-2xl font-bold line-clamp-2 mb-2">
-        {title}
+      <time className="block text-slate-500 mb-4">{date}</time>
+      <Link to={slug} className="text-2xl font-bold line-clamp-2 mb-3">
+        <h2>{title}</h2>
       </Link>
-      <div>{lowerCaption}</div>
+      <div className="line-clamp-2 text-slate-500">{tags.join(", ")}</div>
     </li>
   );
 }
