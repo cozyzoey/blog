@@ -13,7 +13,6 @@ export default function BlogPostPreview({
       <BlogPostTemplate
         content={widgetFor("body")}
         date={new Date(data.date).toLocaleDateString()}
-        description={data.description}
         tags={data.tags}
         title={data.title}
       />

@@ -17,7 +17,7 @@ export default function ({
 } & HTMLAttributes<HTMLLIElement>) {
   return (
     <li className="w-full max-w-[300px]" {...props}>
-      <Link to={slug} className="block mb-3">
+      <Link to={slug} className="block mb-4">
         <img
           src={img}
           className="w-full aspect-[3/2] rounded-lg object-contain"

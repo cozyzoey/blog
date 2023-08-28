@@ -30,7 +30,7 @@ export default function ({
 }
 
 export const Head = ({}: HeadProps) => {
-  return <title>블로그 인덱스 페이지</title>;
+  return <title>블로그 목록 - CozyZoey's Blog</title>;
 };
 
 export const query = graphql`
