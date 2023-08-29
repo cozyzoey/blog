@@ -20,7 +20,7 @@ export default function ({
       <Link to={slug} className="block mb-4">
         <img
           src={img}
-          className="w-full aspect-[3/2] rounded-lg object-contain"
+          className="w-full aspect-[3/2] rounded-lg object-cover"
         />
       </Link>
       <time className="block text-slate-500 mb-4">{date}</time>

@@ -5,7 +5,7 @@ import Footer from "./footer";
 
 export default function ({ children }: { children: ReactNode }) {
   return (
-    <div className="max-w-screen-lg mx-auto flex flex-col gap-y-20">
+    <div className="max-w-screen-lg px-4 mx-auto flex flex-col gap-y-20">
       <Header />
       <main>{children}</main>
       <Footer />

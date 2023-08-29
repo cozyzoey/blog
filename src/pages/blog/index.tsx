@@ -11,7 +11,7 @@ export default function ({
   return (
     <Layout>
       <h1 className="text-4xl font-bold mb-14">Blog</h1>
-      <ul className="grid grid-cols-3 gap-10">
+      <ul className="grid grid-col-1 sm:grid-cols-2 xl:grid-cols-3 gap-10">
         {posts.map(({ node }) => {
           return (
             <BlogPostCard
