@@ -8,7 +8,17 @@ module.exports = {
       fontFamily: {
         sans: ["Gothic A1", ...defaultTheme.fontFamily.sans],
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            "code.language-text": {
+              color: `${theme("colors.rose.400")} !important`,
+              background: `${theme("colors.gray.100")} !important`,
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

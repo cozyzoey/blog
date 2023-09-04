@@ -4,12 +4,16 @@ export interface ContentRendererProps {
   content: ReactNode;
 }
 
-const cn = "markdown";
+const prose =
+  "prose prose-lg max-w-none prose-code:before:hidden prose-code:after:hidden";
 
 export default function ({ content }: ContentRendererProps) {
-  return <div className={cn}>{content}</div>;
+  return <div className={prose}>{content}</div>;
 }
 
 export const HTMLContentRenderer = ({ content }: ContentRendererProps) => (
-  <div className={cn} dangerouslySetInnerHTML={{ __html: content as string }} />
+  <div
+    className={prose}
+    dangerouslySetInnerHTML={{ __html: content as string }}
+  />
 );
