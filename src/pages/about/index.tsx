@@ -89,10 +89,6 @@ export default function () {
           <h2 className={SUBJECT_TITLE}>Contact</h2>
           <table>
             <tr>
-              <td>연락처</td>
-              <td>010-5025-9204</td>
-            </tr>
-            <tr>
               <td>이메일</td>
               <td>devzoeykim@gmail.com</td>
             </tr>
@@ -124,7 +120,7 @@ const Items = ({ items }: { items: items.Item[] }) => {
         </ol>
       )}
       {techs && (
-        <ul className='flex gap-4'>
+        <ul className='flex gap-4 flex-wrap'>
           {techs.map((tech, idx) => (
             <li key={idx}>{tech}</li>
           ))}
