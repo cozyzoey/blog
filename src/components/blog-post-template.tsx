@@ -19,8 +19,8 @@ export default function ({
     <>
       <h1 className="text-4xl font-bold mb-4">{title}</h1>
       <div className="text-xl font-light mb-16 text-slate-500">
-        <time>{dayjs(date).format("YYYY.MM.DD")}</time> &mdash;{" "}
-        {tags.join(", ")}
+        <time>{dayjs(date).format("YYYY.MM.DD")}</time>
+        {tags && <> &mdash; tags.join(", ")</>}
       </div>
       <ContentComponent content={content} />
     </>
