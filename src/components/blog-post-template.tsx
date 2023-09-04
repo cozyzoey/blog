@@ -18,13 +18,15 @@ export default function ({
 }) {
   const ContentComponent = contentComponent || ContentRenderer
   return (
-    <>
-      <h1 className='text-4xl font-bold mb-4'>{title}</h1>
-      <div className='text-xl font-light mb-16 text-slate-500'>
-        <time>{dayjs(date).format('MMM D, YYYY')}</time>
-        {tags && <> &mdash; {tags.join(', ')}</>}
-      </div>
+    <div className='center-content'>
+      <section className='text-center'>
+        <div className='text-xl font-light mb-4 text-slate-500'>
+          <time>{dayjs(date).format('MMM D, YYYY')}</time>
+          {tags && <> &mdash; {tags.join(', ')}</>}
+        </div>
+        <h1 className='text-4xl font-bold mb-16'>{title}</h1>
+      </section>
       <ContentComponent content={content} />
-    </>
+    </div>
   )
 }

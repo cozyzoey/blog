@@ -9,21 +9,23 @@ export default function ({
 }: PageProps<Queries.BlogRollQuery>) {
   return (
     <Layout>
-      <h1 className='text-4xl font-bold mb-14'>Blog</h1>
-      <ul className='grid grid-col-1 sm:grid-cols-2 xl:grid-cols-3 gap-10'>
-        {posts.map(({ node }) => {
-          return (
-            <BlogPostCard
-              img={node.frontmatter?.featuredimage ?? ''}
-              slug={node.fields?.slug ?? '/blog'}
-              title={node.frontmatter?.title ?? ''}
-              date={node.frontmatter?.date ?? ''}
-              tags={node.frontmatter?.tags ?? ['']}
-              key={node.id}
-            />
-          )
-        })}
-      </ul>
+      <div className='center-content'>
+        <h1 className='text-4xl text-center font-bold mb-14'>Blog</h1>
+        <ul className='grid justify-center grid-col-1 sm:grid-cols-2 xl:grid-cols-3 gap-10'>
+          {posts.map(({ node }) => {
+            return (
+              <BlogPostCard
+                img={node.frontmatter?.featuredimage ?? ''}
+                slug={node.fields?.slug ?? '/blog'}
+                title={node.frontmatter?.title ?? ''}
+                date={node.frontmatter?.date ?? ''}
+                tags={node.frontmatter?.tags ?? ['']}
+                key={node.id}
+              />
+            )
+          })}
+        </ul>
+      </div>
     </Layout>
   )
 }

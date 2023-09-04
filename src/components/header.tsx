@@ -2,15 +2,20 @@ import { Link } from 'gatsby'
 
 export default function () {
   return (
-    <header className='pt-10 pb-4 border-solid border-b border-gray-300'>
-      <Link to='/' className='text-3xl font-thin block mb-5'>
-        cozyzoey's blog
-      </Link>
-      <nav className='text-xl'>
-        <Link to='/blog' activeClassName='font-md'>
-          Blog
+    <header className='pt-8 pb-4 shadow-sm'>
+      <div className='center-content flex items-center justify-between'>
+        <Link to='/' className='text-xl'>
+          CozyZoey
         </Link>
-      </nav>
+        <nav className='text-lg font-medium flex gap-5'>
+          <Link to='/blog' activeClassName='font-md'>
+            Blog
+          </Link>
+          <Link to='/about' activeClassName='font-md'>
+            About
+          </Link>
+        </nav>
+      </div>
     </header>
   )
 }

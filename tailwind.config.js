@@ -1,4 +1,6 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+/* eslint-disable */
+
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -6,19 +8,19 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Gothic A1", ...defaultTheme.fontFamily.sans],
+        sans: ['Gothic A1', ...defaultTheme.fontFamily.sans],
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            "code.language-text": {
-              color: `${theme("colors.rose.400")} !important`,
-              background: `${theme("colors.gray.100")} !important`,
+            'code.language-text': {
+              color: `${theme('colors.rose.400')} !important`,
+              background: `${theme('colors.gray.100')} !important`,
             },
           },
         },
       }),
     },
   },
-  plugins: [require("@tailwindcss/typography")],
-};
+  plugins: [require('@tailwindcss/typography')],
+}
