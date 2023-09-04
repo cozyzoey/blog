@@ -1,7 +1,7 @@
 import Layout from 'components/layout'
 import { Fragment } from 'react'
 
-import * as items from './data/items'
+import * as items from '../../data/about'
 
 const SUBJECT_TITLE = 'text-4xl font-bold text-blue-800 mb-6'
 const ITEM_TITLE = 'text-3xl font-medium mb-2'
