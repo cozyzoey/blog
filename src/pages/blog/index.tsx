@@ -1,7 +1,6 @@
-import { graphql, PageProps, HeadProps } from "gatsby";
-import Layout from "components/layout";
-import BlogPostCard from "components/blog-post-card";
-import { Link } from "gatsby";
+import BlogPostCard from 'components/blog-post-card'
+import Layout from 'components/layout'
+import { graphql, PageProps } from 'gatsby'
 
 export default function ({
   data: {
@@ -10,28 +9,28 @@ export default function ({
 }: PageProps<Queries.BlogRollQuery>) {
   return (
     <Layout>
-      <h1 className="text-4xl font-bold mb-14">Blog</h1>
-      <ul className="grid grid-col-1 sm:grid-cols-2 xl:grid-cols-3 gap-10">
+      <h1 className='text-4xl font-bold mb-14'>Blog</h1>
+      <ul className='grid grid-col-1 sm:grid-cols-2 xl:grid-cols-3 gap-10'>
         {posts.map(({ node }) => {
           return (
             <BlogPostCard
-              img={node.frontmatter?.featuredimage ?? ""}
-              slug={node.fields?.slug ?? "/blog"}
-              title={node.frontmatter?.title ?? ""}
-              date={node.frontmatter?.date ?? ""}
-              tags={node.frontmatter?.tags ?? [""]}
+              img={node.frontmatter?.featuredimage ?? ''}
+              slug={node.fields?.slug ?? '/blog'}
+              title={node.frontmatter?.title ?? ''}
+              date={node.frontmatter?.date ?? ''}
+              tags={node.frontmatter?.tags ?? ['']}
               key={node.id}
             />
-          );
+          )
         })}
       </ul>
     </Layout>
-  );
+  )
 }
 
-export const Head = ({}: HeadProps) => {
-  return <title>블로그 목록 - CozyZoey's Blog</title>;
-};
+export const Head = () => {
+  return <title>블로그 목록 - CozyZoey's Blog</title>
+}
 
 export const query = graphql`
   query BlogRoll {
@@ -57,4 +56,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

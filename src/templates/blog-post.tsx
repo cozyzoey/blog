@@ -1,7 +1,8 @@
-import Layout from "../components/layout";
+import { graphql, PageProps } from "gatsby";
+
 import BlogPostTemplate from "../components/blog-post-template";
 import { HTMLContentRenderer } from "../components/content-renderer";
-import { graphql, PageProps } from "gatsby";
+import Layout from "../components/layout";
 
 export default function ({
   data: { markdownRemark: post },
