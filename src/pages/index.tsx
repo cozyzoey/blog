@@ -1,5 +1,5 @@
 import Layout from 'components/layout'
-import type { HeadFC } from 'gatsby'
+import genPageTitle from 'utils/genPageTitle'
 
 export default function IndexPage() {
   return (
@@ -15,4 +15,6 @@ export default function IndexPage() {
   )
 }
 
-export const Head: HeadFC = () => <title>CozyZoey's Blog</title>
+export function Head() {
+  return <title>{genPageTitle()}</title>
+}

@@ -2,6 +2,11 @@ import Layout from 'components/layout'
 import * as items from 'data/about'
 import { Fragment } from 'react'
 import { AiFillGithub } from 'react-icons/ai'
+import genPageTitle from 'utils/genPageTitle'
+
+export function Head() {
+  return <title>{genPageTitle('About')}</title>
+}
 
 export default function () {
   return (

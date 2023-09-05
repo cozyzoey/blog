@@ -1,6 +1,7 @@
 import BlogPostCard from 'components/blog-post-card'
 import Layout from 'components/layout'
 import { graphql, PageProps } from 'gatsby'
+import genPageTitle from 'utils/genPageTitle'
 
 export default function ({
   data: {
@@ -30,8 +31,8 @@ export default function ({
   )
 }
 
-export const Head = () => {
-  return <title>블로그 목록 - CozyZoey's Blog</title>
+export function Head() {
+  return <title>{genPageTitle('Blog')}</title>
 }
 
 export const query = graphql`
