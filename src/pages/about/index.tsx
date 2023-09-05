@@ -11,7 +11,7 @@ export function Head() {
 export default function () {
   return (
     <Layout>
-      <article className='center-content text-lg break-keep'>
+      <article className='center-content text-lg'>
         <h1 className='text-4xl font-bold text-center mb-14'>About</h1>
         <section className='mb-10'>
           <p>
@@ -73,16 +73,20 @@ export default function () {
           <SectionTitle title='Education' />
           <table>
             <tbody>
-              <tr>
-                <th className='w-max font-bold pr-10'>2018.09 - 2020.08</th>
-                <td>
+              <tr className='flex flex-col gap-x-10 xl:flex-row'>
+                <th className='shrink-0 font-bold text-left'>
+                  2018.09 - 2020.08
+                </th>
+                <td className='grow'>
                   홍익대학교 국제디자인전문대학원 | 스마트디자인엔지니어링
                   석사졸
                 </td>
               </tr>
-              <tr>
-                <th className='w-max font-bold pr-10'>2009.03 - 2013.08</th>
-                <td>서울대학교 | 기계항공공학부 학사졸</td>
+              <tr className='flex flex-col gap-x-10 xl:flex-row mt-2'>
+                <th className='shrink-0 font-bold text-left'>
+                  2009.03 - 2013.08
+                </th>
+                <td className='grow'>서울대학교 | 기계항공공학부 학사졸</td>
               </tr>
             </tbody>
           </table>
@@ -122,7 +126,7 @@ const Hr = () => {
 
 const SectionTitle = ({ title }: { title: string }) => {
   return (
-    <h2 className='text-4xl font-extrabold text-blue-700 mt-16 mb-8'>
+    <h2 className='text-4xl font-extrabold text-blue-800 mt-16 mb-8'>
       {title}
     </h2>
   )
@@ -139,7 +143,7 @@ const CompanyIntro = ({
 }) => {
   return (
     <>
-      <p className='text-2xl font-bold mb-2 text-blue-700'>
+      <p className='text-2xl font-bold mb-2 text-blue-800'>
         {name} <span className='text-xl'>({duration})</span>
       </p>
       <p className='mb-4'>{desc}</p>
@@ -150,11 +154,11 @@ const CompanyIntro = ({
 const Items = ({ items }: { items: items.Item[] }) => {
   return items.map(({ title, desc, outcomes, techs, github }, idx) => (
     <Fragment key={idx}>
-      <h3 className='text-2xl font-semibold mt-10 mb-2 flex items-start gap-x-1.5'>
+      <h3 className='text-2xl font-semibold mt-10 mb-2 flex items-start gap-x-2'>
         {title}
         {github && (
           <a href={github} target='_blank'>
-            <AiFillGithub size={28} />
+            <AiFillGithub className='w-[1.1em] h-[1.1em]' />
           </a>
         )}
       </h3>{' '}
