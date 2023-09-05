@@ -23,11 +23,12 @@ export type Tech =
   | 'Netlify'
 
 export type Item = {
-  title?: string
+  title: string
   desc?: string
   coworkers?: number
   outcomes?: string[]
   techs?: Tech[]
+  github?: string
 }
 
 export const codestates: Item[] = [
@@ -150,10 +151,12 @@ export const projects: Item[] = [
     title: '온빛',
     desc: '지인의 병원 홈페이지입니다. 간단한 공지사항 어드민 기능을 제공합니다. 기존 React 16 기반에서 SEO 향상을 위하여 Next.js 13 및 App 라우터로 마이그레이션을 진행하고 있습니다.',
     techs: ['Firebase', 'React', 'Redux', 'Sass'],
+    github: 'https://github.com/cozyzoey/onbit',
   },
   {
     title: '블로그',
     desc: '개인 블로그를 직접 운영하기 위한 초기 작업입니다. Git 기반의 Headless CMS(Decap CMS)를 적용했습니다.',
     techs: ['Decap CMS', 'Gatsby', 'GraphQL', 'Tailwind CSS', 'Netlify'],
+    github: 'https://github.com/cozyzoey/blog',
   },
 ]
