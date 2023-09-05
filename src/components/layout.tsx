@@ -5,9 +5,9 @@ import Header from './header'
 
 export default function ({ children }: { children: ReactNode }) {
   return (
-    <div className='flex flex-col gap-y-20'>
+    <div>
       <Header />
-      <main>{children}</main>
+      <main className='pt-14 pb-20'>{children}</main>
       <Footer />
     </div>
   )

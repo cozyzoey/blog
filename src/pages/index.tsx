@@ -4,7 +4,7 @@ import genPageTitle from 'utils/genPageTitle'
 export default function IndexPage() {
   return (
     <Layout>
-      <article className='h-5/6 text-center break-keep'>
+      <article className='center-content h-5/6 text-center break-keep'>
         <h1 className='text-4xl font-bold mb-6'>안녕하세요. 김반석입니다.</h1>
         <section className='text-xl'>
           <p>서울에서 웹 프론트엔드 개발을 하고 있습니다.</p>
