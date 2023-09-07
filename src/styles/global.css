@@ -4,8 +4,6 @@
 
 @layer base {
   html {
-    @apply text-slate-900;
-
     font-size: 14px;
     @screen md {
       font-size: 15px;

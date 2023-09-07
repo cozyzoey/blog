@@ -14,8 +14,8 @@ module.exports = {
         DEFAULT: {
           css: {
             'code.language-text': {
-              color: `${theme('colors.rose.400')} !important`,
-              background: `${theme('colors.gray.100')} !important`,
+              color: `${theme('colors.rose.500')} !important`,
+              background: `transparent !important`,
             },
           },
         },
@@ -26,4 +26,5 @@ module.exports = {
     },
   },
   plugins: [require('@tailwindcss/typography')],
+  darkMode: 'class',
 }

@@ -12,7 +12,7 @@ export default function ({
     <Layout>
       <div className='center-content'>
         <h1 className='text-4xl text-center font-bold mb-14'>Blog</h1>
-        <ul className='grid justify-center grid-col-1 sm:grid-cols-2 xl:grid-cols-3 gap-10'>
+        <ul className='grid justify-center grid-col-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 place-items-center'>
           {posts.map(({ node }) => {
             return (
               <BlogPostCard

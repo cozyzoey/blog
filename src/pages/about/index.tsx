@@ -129,7 +129,7 @@ const Hr = () => {
 
 const SectionTitle = ({ title }: { title: string }) => {
   return (
-    <h2 className='text-4xl font-extrabold text-blue-800 mt-16 mb-8'>
+    <h2 className='text-4xl font-extrabold text-blue-800 mt-16 mb-8 dark:text-blue-600'>
       {title}
     </h2>
   )
@@ -146,7 +146,7 @@ const CompanyIntro = ({
 }) => {
   return (
     <>
-      <p className='text-2xl font-bold mb-2 text-blue-800'>
+      <p className='text-2xl font-bold mb-2 text-blue-800 dark:text-blue-600'>
         {name} <span className='text-xl'>({duration})</span>
       </p>
       <p className='mb-4'>{desc}</p>
@@ -178,7 +178,7 @@ const Items = ({ items }: { items: items.Item[] }) => {
           {techs.map((tech, idx) => (
             <li
               key={idx}
-              className='text-base py-0.5 px-2 rounded-full bg-slate-100 text-slate-500'
+              className='text-base py-0.5 px-2 rounded-full bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-300'
             >
               {tech}
             </li>

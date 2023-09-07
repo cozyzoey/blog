@@ -23,11 +23,15 @@ export default function ({
           className='w-full aspect-[3/2] rounded-lg object-cover'
         />
       </Link>
-      <time className='block text-slate-500 mb-4'>{date}</time>
+      <time className='block text-slate-500 mb-4 dark:text-slate-300'>
+        {date}
+      </time>
       <Link to={slug} className='text-2xl font-bold line-clamp-2 mb-3'>
         <h2>{title}</h2>
       </Link>
-      <div className='line-clamp-2 text-slate-500'>{tags.join(', ')}</div>
+      <div className='line-clamp-2 text-slate-500 dark:text-slate-300'>
+        {tags.join(', ')}
+      </div>
     </li>
   )
 }

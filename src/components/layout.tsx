@@ -5,7 +5,7 @@ import Header from './header'
 
 export default function ({ children }: { children: ReactNode }) {
   return (
-    <div>
+    <div className='text-slate-900 dark:text-white dark:bg-slate-800 transition-all'>
       <Header />
       <main className='pt-14 pb-20'>{children}</main>
       <Footer />
