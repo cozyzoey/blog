@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-
-type Theme = 'light' | 'dark'
+import { useEffect } from 'react'
+import { useSyncExternalStore } from 'react'
+import themeStore, { Theme } from 'store/themeStore'
 
 interface Props {
   children: (props: {
@@ -10,20 +10,18 @@ interface Props {
 }
 
 export default function ({ children }: Props) {
-  const [theme, setTheme] = useState<Theme>(
-    typeof window !== 'undefined'
-      ? localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-        ? 'dark'
-        : 'light'
-      : 'light'
+  const theme = useSyncExternalStore(
+    themeStore.subscribe,
+    themeStore.getSnapShot,
+    themeStore.getServerSnapshot
   )
 
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark'
-    setTheme(newTheme)
-    localStorage.theme = newTheme
+    const newValue = theme === 'dark' ? 'light' : 'dark'
+    localStorage.setItem('theme', newValue)
+    window.dispatchEvent(
+      new StorageEvent('storage', { key: 'theme', newValue })
+    )
   }
 
   useEffect(() => {
