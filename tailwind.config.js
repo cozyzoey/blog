@@ -14,7 +14,7 @@ module.exports = {
         DEFAULT: {
           css: {
             'code.language-text': {
-              color: `${theme('colors.rose.500')} !important`,
+              color: `${theme('colors.rose.400')} !important`,
               background: `transparent !important`,
             },
           },

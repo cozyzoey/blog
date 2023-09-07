@@ -11,17 +11,25 @@ export default function () {
           CozyZoey
         </Link>
         <div className='w-max flex gap-5'>
-          <nav className='text-lg font-medium flex gap-5'>
-            <Link to='/blog' activeClassName='font-md'>
+          <nav className='text-lg flex gap-5 text-slate-500 dark:text-slate-300'>
+            <Link
+              to='/blog'
+              className='xl:hover:underline'
+              activeClassName='text-slate-700 dark:text-white font-medium'
+            >
               Blog
             </Link>
-            <Link to='/about' activeClassName='font-md'>
+            <Link
+              to='/about'
+              className='xl:hover:underline'
+              activeClassName='text-slate-700 dark:text-white font-medium'
+            >
               About
             </Link>
           </nav>
           <ThemeToggler>
             {({ theme, toggleTheme }) => (
-              <label className='cursor-pointer text-slate-400 dark:text-slate-300'>
+              <label className='cursor-pointer text-slate-400 dark:text-slate-300 xl:hover:text-slate-500'>
                 <input
                   type='checkbox'
                   onChange={(e) =>

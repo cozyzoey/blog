@@ -27,9 +27,7 @@ export default function ({ children }: Props) {
   }
 
   useEffect(() => {
-    theme === 'dark'
-      ? document.documentElement.classList.add('dark')
-      : document.documentElement.classList.remove('dark')
+    document.documentElement.classList.toggle('dark', theme === 'dark')
   }, [theme])
 
   return children({ theme, toggleTheme })
