@@ -11,10 +11,12 @@ interface Props {
 
 export default function ({ children }: Props) {
   const [theme, setTheme] = useState<Theme>(
-    localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ? 'dark'
+    typeof window !== 'undefined'
+      ? localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ? 'dark'
+        : 'light'
       : 'light'
   )
 
