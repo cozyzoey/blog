@@ -12,7 +12,10 @@ export default function () {
   return (
     <Layout>
       <article className='center-content text-lg'>
-        <h1 className='text-4xl font-bold text-center mb-14'>About</h1>
+        <h1 className='text-4xl font-bold text-center mb-14'>
+          <span className='print:hidden'>About</span>
+          <span className='hidden print:inline-block'>김반석 기술 이력서</span>
+        </h1>
         <section className='mb-10'>
           <p>
             3년 차 프론트엔드 개발자 김반석입니다. 기계공학과 융합디자인
@@ -121,7 +124,7 @@ export default function () {
 }
 
 const Hr = () => {
-  return <hr className='w-full h-px border-none bg-slate-100 my-10' />
+  return <div className='w-full h-px border-none bg-slate-100 my-10' />
 }
 
 const SectionTitle = ({ title }: { title: string }) => {

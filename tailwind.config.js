@@ -20,6 +20,9 @@ module.exports = {
           },
         },
       }),
+      screens: {
+        print: { raw: 'print' },
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

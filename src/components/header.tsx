@@ -2,7 +2,7 @@ import { Link } from 'gatsby'
 
 export default function () {
   return (
-    <header className='pt-6 pb-4 border-solid border-b border-slate-100'>
+    <header className='pt-6 pb-4 border-solid border-b border-slate-100 print:hidden'>
       <div className='center-content flex items-center justify-between'>
         <Link to='/' className='text-xl font-medium'>
           CozyZoey

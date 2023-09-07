@@ -1342,6 +1342,10 @@ html {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .aspect-\[3\/2\] {
   aspect-ratio: 3/2;
 }
@@ -1356,6 +1360,10 @@ html {
 
 .h-px {
   height: 1px;
+}
+
+.h-1 {
+  height: 0.25rem;
 }
 
 .w-\[1\.1em\] {
@@ -1444,10 +1452,6 @@ html {
        column-gap: 0.5rem;
 }
 
-.gap-y-20 {
-  row-gap: 5rem;
-}
-
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1492,6 +1496,11 @@ html {
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
+.bg-slate-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1527,6 +1536,10 @@ html {
   padding-bottom: 1.5rem;
 }
 
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -1535,28 +1548,12 @@ html {
   padding-right: 2.5rem;
 }
 
-.pt-6 {
-  padding-top: 1.5rem;
-}
-
-.pb-20 {
-  padding-bottom: 5rem;
-}
-
-.pt-10 {
-  padding-top: 2.5rem;
-}
-
-.pt-16 {
-  padding-top: 4rem;
-}
-
-.pt-12 {
-  padding-top: 3rem;
-}
-
 .pt-14 {
   padding-top: 3.5rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
 }
 
 .text-left {
@@ -1672,5 +1669,45 @@ html {
 
   .xl\:flex-row {
     flex-direction: row;
+  }
+}
+
+@media print {
+  .print\:visible {
+    visibility: visible;
+  }
+
+  .print\:block {
+    display: block;
+  }
+
+  .print\:inline-block {
+    display: inline-block;
+  }
+
+  .print\:hidden {
+    display: none;
+  }
+
+  .print\:h-1 {
+    height: 0.25rem;
+  }
+
+  .print\:h-px {
+    height: 1px;
+  }
+
+  .print\:w-full {
+    width: 100%;
+  }
+
+  .print\:bg-slate-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+  }
+
+  .print\:bg-pink-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(131 24 67 / var(--tw-bg-opacity));
   }
 }
