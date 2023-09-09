@@ -4,7 +4,7 @@ title: React Server Components
 tags:
   - React
   - Next.js
-date: 2023-09-09T03:15:45.673Z
+date: 2023-09-09T03:37:32.401Z
 featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694230551/blog/rsc_arhjd3.png
 ---
 ## Intro
