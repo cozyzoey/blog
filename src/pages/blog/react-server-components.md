@@ -4,7 +4,7 @@ title: React Server Components
 tags:
   - React
   - Next.js
-date: 2023-09-08T05:12:31.291Z
+date: 2023-09-09T03:15:45.673Z
 featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694229113/blog/rsc_mq6fll.png
 ---
 ## 들어가며
@@ -16,11 +16,12 @@ featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c
 
 RSC는 리액트 팀이 리액트가 서버에서 실행될 때 어떻게 동작할 지를 정의한 것이다. Next.js같은 특정 프레임웍이나 메서드에 국한된 것이 아니라 일반적인 개념이다.
 
+### 렌더링 전략
 리액트 코드는 실행되는 시점에 따라 세 가지로 구분할 수 있다.
 
-1. `SSG(Static Site Generation)` 앱을 빌드할 때 실행되며 결과물로 정적 페이지를 만든다.
-2. `SSR(Server-Side Rendering)` 요청이 있을 때 실행되며 결과물은 이후 요청을 위해 캐시될 수 있다.
-3. `CSR(Client-Side Renering)` 리액트 코드가 브라우저에 보내지고 브라우저에서 컨텐츠를 만든다.
+1. **SSG(Static Site Generation)** 앱을 빌드할 때 실행되며 결과물로 정적 페이지를 만든다.
+2. **SSR(Server-Side Rendering)** 요청이 있을 때 실행되며 결과물은 이후 요청을 위해 캐시될 수 있다.
+3. **CSR(Client-Side Renering)** 리액트 코드가 브라우저에 보내지고 브라우저에서 컨텐츠를 만든다.
 
 **RSC를 실행하면 기본적으로 SSG로 동작한다.** 그런데 브라우저에서 정적 페이지의 소스 코드를 살펴보면 원본 페이지에는 자바스크립트가 전혀 없는데도 자바스크립트 코드가 많이 보인다. 이 코드들의 정체는 뭘까?
 
@@ -134,7 +135,7 @@ import 'server-only'
 export const revalidate=0;
 ```
 
-혹시 가능한 컨텐츠를 먼저 브라우저에 보내고 이후에 비동기 작업을 처리하여 나머지 컨텐츠를 채워나가는 방식은 어떨까? RSC를 사용하면 가능하다! 이를 스트리밍이라고 하며, RSC의 가장 큰 장점 중 하나다. 
+SSR에서 가능한 컨텐츠를 먼저 브라우저에 보내고 이후에 비동기 작업을 처리하여 나머지 컨텐츠를 채워나가는 방식은 어떨까? RSC를 사용하면 가능하다! 이를 스트리밍이라고 하며, RSC의 가장 큰 장점 중 하나다. 
 
 ### Streaming
 
