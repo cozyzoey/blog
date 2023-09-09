@@ -5,7 +5,7 @@ tags:
   - React
   - Next.js
 date: 2023-09-08T05:12:31.291Z
-featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1689170017/992762435A33213D25_gpijt4.jpg
+featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694229113/blog/rsc_mq6fll.png
 ---
 ## 들어가며
 
@@ -142,5 +142,7 @@ TBC
 
 ## 참조
 
-1. [Demystifying React Server Components
+- [Demystifying React Server Components
    with NextJS 13 App Router](https://demystifying-rsc.vercel.app/)
+- [Server and Client Composition Patterns
+](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns)
