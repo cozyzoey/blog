@@ -5,9 +5,9 @@ tags:
   - React
   - Next.js
 date: 2023-09-09T03:15:45.673Z
-featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694229113/blog/rsc_mq6fll.png
+featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694230551/blog/rsc_arhjd3.png
 ---
-## 들어가며
+## Intro
 
 `React Server Components(RSC)`라는 용어는 두 가지 의미로 사용된다.
 
@@ -25,7 +25,7 @@ RSC는 리액트 팀이 리액트가 서버에서 실행될 때 어떻게 동작
 
 **RSC를 실행하면 기본적으로 SSG로 동작한다.** 그런데 브라우저에서 정적 페이지의 소스 코드를 살펴보면 원본 페이지에는 자바스크립트가 전혀 없는데도 자바스크립트 코드가 많이 보인다. 이 코드들의 정체는 뭘까?
 
-## 가상 돔
+## Virtual DOM
 
 이는 해당 정적 페이지의 가상 돔(Virtual DOM)에 해당하는 코드다. **RSC는 정적 컨텐츠와 가상 돔 두 가지 모두를 만든다.** 정적 컨텐츠가 있는데 왜 가상 돔이 필요할까? 
 
@@ -36,7 +36,7 @@ RSC는 리액트 팀이 리액트가 서버에서 실행될 때 어떻게 동작
 ![멘탈 모델](https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694168367/blog/mental-model-3_tuh1s1.png)
 출처: https://demystifying-rsc.vercel.app
 
-## 클라이언트 컴포넌트
+## Client Component
 
 컴포넌트에 인터랙션이나 useState같은 훅이 있다면 이들은 브라우저에서 실행되는 컴포넌트로 여겨진다. RSC는 기본적으로 컴포넌트를 서버 컴포넌트로 취급하기 때문에 이들을 클라이언트 컴포넌트로 여기도록 해줘야 한다.
 
@@ -65,7 +65,7 @@ RSC는 리액트 팀이 리액트가 서버에서 실행될 때 어떻게 동작
 
 이러한 경우에 사용할 수 있는 것이 **Next.js의 next/dynamic과 ssr 옵션**이다. ([Skipping SSR](https://nextjs.org/docs/app/building-your-application/optimizing/lazy-loading#skipping-ssr))
 
-```
+```typescript
 const ComponentC = dynamic(() => import('../components/C'), { ssr: false })
 ```
 
@@ -76,11 +76,11 @@ const ComponentC = dynamic(() => import('../components/C'), { ssr: false })
 
 [template](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) HTML 요소가 들어가게 된다. template은 자바스크립트로 HTML 요소를 만들기 전에는 아무것도 아니다. 정적 돔과 가상 돔을 비교할 때 리액트는 이 자리에 클라이언트 컴포넌트가 들어갈 것을 인지하고 hydration 에러를 발생시키지 않는다.
 
-## 서버 컴포넌트와 클라이언트 컴포넌트 조립하기
+## Composition
 
-Next.js 13에서 서버 컴포넌트가 등장하면서 클라이언트 컴포넌트와 어떻게 구성해야 하는 지 다소 헤깔린다. 여기서 정리하고 넘어가자.
+Next.js 13에서 서버 컴포넌트가 등장하면서 클라이언트 컴포넌트와 어떻게 구성해야 하는 지 다소 헤깔린다. 정리하고 넘어가자.
 
-`TL;DR`
+**TL;DR**
 
 * 클라이언트 컴포넌트에서 "Server-Only" 컴포넌트는 임포트할 수 없다.
 * 클라이언트 컴포넌트에 임포트된 컴포넌트는 무조건 클라이언트 컴포넌트로 취급된다.
@@ -122,28 +122,8 @@ import 'server-only'
 
 그렇게 하는 대신에 인터랙티브 로직은 클라이언트 컴포넌트로 분리하고 레이아웃 컴포넌트는 서버 컴포넌트로 유지하는 것이 좋다.
 
-
-## async 서버 컴포넌트
-
-서버 컴포넌트는 비동기로 Promise를 반환할 수 있다. 만약 SSR인 경우라면 RSC는 모든 Promise가 리졸브될 때까지 기다렸다가 브라우저에 응답하기 때문에 그만큼 페이지 응답이 지연된다. 
-
-비동기 RSC는 병렬적으로 처리되지만 중첩된 비동기 RSC는 순차적으로 처리된다. 그래서 중첩이 많을수록 전체 페이이지 로딩을 지연시키게 된다.
-
-참고로 RSC는 기본적으로 SSG로 동작하고, SSG 환경에서 해당 지연은 빌드 타임에 발생한다. 해당 페이지를 SSR로 처리하고 싶다면 아래 코드를 작성해주면 된다.
-
-```typescript
-export const revalidate=0;
-```
-
-SSR에서 가능한 컨텐츠를 먼저 브라우저에 보내고 이후에 비동기 작업을 처리하여 나머지 컨텐츠를 채워나가는 방식은 어떨까? RSC를 사용하면 가능하다! 이를 스트리밍이라고 하며, RSC의 가장 큰 장점 중 하나다. 
-
-### Streaming
-
-TBC
-
 ## 참조
 
 - [Demystifying React Server Components
    with NextJS 13 App Router](https://demystifying-rsc.vercel.app/)
-- [Server and Client Composition Patterns
-](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns)
+- [Server and Client Composition Patterns](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns)
