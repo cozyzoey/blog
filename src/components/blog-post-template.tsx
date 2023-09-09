@@ -24,7 +24,7 @@ export default function ({
           <time>{dayjs(date).format('MMM D, YYYY')}</time>
           {tags && <> &mdash; {tags.join(', ')}</>}
         </div>
-        <h1 className='text-4xl font-bold mb-16 dark:text-white'>{title}</h1>
+        <h1 className='text-5xl font-bold mb-16 dark:text-white'>{title}</h1>
       </section>
       <ContentComponent content={content} />
     </div>

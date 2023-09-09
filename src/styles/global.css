@@ -16,6 +16,6 @@
 
 @layer utilities {
   .center-content {
-    @apply max-w-screen-lg px-4 mx-auto;
+    @apply max-w-screen-lg px-4 mx-auto md:px-8;
   }
 }
