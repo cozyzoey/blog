@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: Headless CMS 블로그 개발기 (Decap CMS + Gatsby)
+title: Headless CMS 블로그 개발기
 tags:
   - Gatsby
   - Headless CMS
@@ -28,6 +28,8 @@ Headless CMS는 크게 API Driven 방식과 Git-based 방식으로 나뉜다. �
 시중에 나와 있는 Headless CMS는 [Jamstack](https://jamstack.org/headless-cms/) 사이트에 잘 나와 있다. 유명한 것들 중에서 무료 플랜을 지원하는 것들을 고르니 4-5개로 추려졌다.
 
 그 중에서 컨텐츠 관리가 "심플"하고 에디터 UI가 마음에 드는 것으로 최종적으로 Sanity와 Decap CMS를 선택하게 되었다. Sanity는 API Driven 방식이고 Portable Text라는 자체 형식으로 rich text를 저장하고 이를 클라이언트 단에서 변환하여 사용한다. 반면 Decap CMS는 Git-based 방식으로 각 포스트는 md 파일로 깃 리포에 저장된다.
+
+## Decap CMS
 
 그런데 Decap CMS가 치명적인 단점이 있었는데 에디터에서 한글 작성이 안된다는 것이다!(실은 이 사실을 어느정도 개발을 진행한 후에 알게 되었다🥲) 운영진이 해당 버그를 픽스할 계획을 공지했기 때문에 릴리즈를 계속 주시하고 있었다. 1년이 지나도록 신규 릴리즈가 없다가 드디어 소식이 전해졌다!🎉🎉 얼마 전에 배포된 [3.0.2](https://github.com/decaporg/decap-cms/releases/tag/decap-cms%403.0.2) 릴리즈 버전부터는 에디터에서 한글을 지원한다.
 
