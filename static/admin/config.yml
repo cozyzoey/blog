@@ -2,11 +2,11 @@ backend:
   name: git-gateway
   branch: main
   commit_messages:
-    create: "Create {{collection}} “{{slug}}”"
-    update: "Update {{collection}} “{{slug}}”"
-    delete: "Delete {{collection}} “{{slug}}”"
-    uploadMedia: "[skip ci] Upload “{{path}}”"
-    deleteMedia: "[skip ci] Delete “{{path}}”"
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
 
 local_backend: true
 
@@ -19,30 +19,37 @@ media_library:
     api_key: 416666377153818
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'src/pages/blog'
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     fields:
       - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "blog-post",
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'blog-post',
         }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
+        media_library:
+          config:
+            default_transformations:
+              - - fetch_format: auto
+                  quality: auto
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - {
-          label: "Featured Post",
-          name: "featuredpost",
-          widget: "boolean",
+          label: 'Featured Post',
+          name: 'featuredpost',
+          widget: 'boolean',
           required: false,
         }
-      - label: "Featured Image"
-        name: "featuredimage"
+      - label: 'Featured Image'
+        name: 'featuredimage'
         widget: image
         media_library:
           config:
