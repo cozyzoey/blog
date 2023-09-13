@@ -3,8 +3,8 @@ import adapter from 'gatsby-adapter-netlify'
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `blog`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: "CozyZoey's Blog",
+    siteUrl: `https://cozyzoey.kr`,
   },
   graphqlTypegen: true,
   adapter: adapter(),
@@ -28,7 +28,12 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-autolink-headers',
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              elements: [`h2`, `h3`],
+            },
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
