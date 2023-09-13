@@ -1,5 +1,4 @@
 import type { GatsbyConfig } from 'gatsby'
-import adapter from 'gatsby-adapter-netlify'
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -7,8 +6,8 @@ const config: GatsbyConfig = {
     siteUrl: `https://cozyzoey.kr`,
   },
   graphqlTypegen: true,
-  adapter: adapter(),
   plugins: [
+    `gatsby-plugin-netlify`,
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
