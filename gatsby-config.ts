@@ -27,6 +27,16 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-autolink-headers',
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              showLineNumbers: false,
+              noInlineHighlight: false,
+            },
+          },
           'gatsby-remark-relative-images',
           {
             resolve: 'gatsby-remark-images',
@@ -38,15 +48,6 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-remark-copy-linked-files',
             options: {
               destinationDir: 'static',
-            },
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              showLineNumbers: false,
-              noInlineHighlight: false,
             },
           },
         ],
