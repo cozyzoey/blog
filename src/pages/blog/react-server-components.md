@@ -17,6 +17,7 @@ featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c
 RSC는 리액트 팀이 리액트가 서버에서 실행될 때 어떻게 동작할 지를 정의한 것이다. Next.js같은 특정 프레임웍이나 메서드에 국한된 것이 아니라 일반적인 개념이다.
 
 ### 렌더링 전략
+
 리액트 코드는 실행되는 시점에 따라 세 가지로 구분할 수 있다.
 
 1. **SSG(Static Site Generation)** 앱을 빌드할 때 실행되며 결과물로 정적 페이지를 만든다.
@@ -33,7 +34,7 @@ RSC는 리액트 팀이 리액트가 서버에서 실행될 때 어떻게 동작
 
 페이지가 로드할 때 리액트는 가상 돔과 서버에서 받은 실제 정적 돔을 비교하는 작업을 한다.(Reconciliation) 만약 이들이 서로 다르다면 콘솔 에러를 던진다. 가상 돔이 정확하지 않다면 돔을 제대로 업데이트할 수 없기 때문이다.
 
-![멘탈 모델](https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694168367/blog/mental-model-3_tuh1s1.png)
+![멘탈 모델](https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit/v1694168367/blog/mental-model-3_tuh1s1.png)
 출처: https://demystifying-rsc.vercel.app
 
 ## Client Component
@@ -54,7 +55,7 @@ RSC는 리액트 팀이 리액트가 서버에서 실행될 때 어떻게 동작
 
 그러고 나서 리액트는 서버에서 받은 SSR html과 브라우저에서 hydration을 거친 CSR html이 동일한 지 비교한다. 만일 서로가 불일치해서 hydration 에러가 생기면, 리액트는 가상 돔 정보를 가지고 전체 페이지를 리렌더한다.
 
-![멘탈 모델 with hydration](https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694168367/blog/mental-model-4_fqf3pc.png)
+![멘탈 모델 with hydration](https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit/v1694168367/blog/mental-model-4_fqf3pc.png)
 출처: https://demystifying-rsc.vercel.app
 
 ### 클라이언트 컴포넌트에서 SSR 비활성화하기
@@ -85,7 +86,7 @@ Next.js 13에서 서버 컴포넌트가 등장하면서 클라이언트 컴포�
 * 클라이언트 컴포넌트에서 "Server-Only" 컴포넌트는 임포트할 수 없다.
 * 클라이언트 컴포넌트에 임포트된 컴포넌트는 무조건 클라이언트 컴포넌트로 취급된다.
 * 클라이언트 컴포넌트는 컴포넌트 트리의 하위에 위치시키자.
- 
+
 ### 1. 서버 컴포넌트를 클라이언트 컴포넌트의 자식(or 프랍)으로 ✅
 
 ```jsx
@@ -105,7 +106,7 @@ Next.js 13에서 서버 컴포넌트가 등장하면서 클라이언트 컴포�
 
 B 케이스에서 Server-Only 기능이라 함은 파일시스템에 접근하거나 데이터베이스에 연결하는 것 따위다. 
 
-![클라이언트 컴포넌트 조립 구성도](https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694168367/blog/mental-model-client-2_gvj4rt.png)
+![클라이언트 컴포넌트 조립 구성도](https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit/v1694168367/blog/mental-model-client-2_gvj4rt.png)
 출처: https://demystifying-rsc.vercel.app
 
 Next.js에서 'use client'가 붙지 않은 컴포넌트는 기본적으로 서버 컴포넌트로 동작하지만, 이러한 경우는 클라이언트 컴포넌트로 동작하게 된다. 만일 컴포넌트가 서버에서만 동작하도록 확실히 제한하고 싶다면 [`server-only`](https://www.npmjs.com/package/server-only) 패키지를 사용할 수 있다. 이제 이 컴포넌트를 클라이언트 컴포넌트로 사용하려고 하면 빌드 시 에러를 던진다.
@@ -115,6 +116,7 @@ import 'server-only'
 ```
 
 ### 3. 클라이언트 컴포넌트는 가능한 하위 트리로
+
 클라이언트 컴포넌트는 컴포넌트 트리의 아래쪽에 위치시키는 것이 좋다. ([Moving Client Components Down the Tree
 ](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#moving-client-components-down-the-tree)) 결과적으로 클라이언트에 전달되는 자바스크립트 번들 사이즈를 줄일 수 있다.
 
@@ -124,6 +126,6 @@ import 'server-only'
 
 ## 참조
 
-- [Demystifying React Server Components
+* [Demystifying React Server Components
    with NextJS 13 App Router](https://demystifying-rsc.vercel.app/)
-- [Server and Client Composition Patterns](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns)
+* [Server and Client Composition Patterns](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns)
