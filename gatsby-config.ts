@@ -30,6 +30,7 @@ const config: GatsbyConfig = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
+              isIconAfterHeader: true,
               elements: [`h2`, `h3`],
             },
           },

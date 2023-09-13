@@ -7,9 +7,7 @@ tags:
 date: 2023-09-09T03:37:32.401Z
 featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694230551/blog/rsc_arhjd3.png
 ---
-## Intro
-
-`React Server Components(RSC)`라는 용어는 두 가지 의미로 사용된다.
+**React Server Components(RSC)** 라는 용어는 두 가지 의미로 사용된다.
 
 1. 서버에서만 실행되는 리액트 컴포넌트
 2. 기존의 리액트 컴포넌트를 서버에서 실행시켜주는 프레임웍이나 환경

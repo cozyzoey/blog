@@ -1046,9 +1046,10 @@ html {
   margin-bottom: 0;
 }
 
-.prose :where(code.language-text):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-  color: #fb7185 !important;
-  background: transparent !important;
+.prose :where(:not(pre) > code.language-text):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  padding: 0.2em 0.4em !important;
+  color: #334155 !important;
+  background: #f1f5f9 !important;
 }
 
 .prose-xl {
@@ -1362,12 +1363,12 @@ html {
   margin-bottom: 3.5rem;
 }
 
-.mb-16 {
-  margin-bottom: 4rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mb-20 {
+  margin-bottom: 5rem;
 }
 
 .mb-3 {

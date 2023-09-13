@@ -13,9 +13,10 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            'code.language-text': {
-              color: `${theme('colors.rose.400')} !important`,
-              background: `transparent !important`,
+            ':not(pre) > code.language-text': {
+              padding: '0.2em 0.4em !important',
+              color: `${theme('colors.slate.700')} !important`,
+              background: `${theme('colors.slate.100')} !important`,
             },
           },
         },

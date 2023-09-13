@@ -101,7 +101,7 @@ module.exports = {
 
 * `subscribe` 스토어를 구독하여 스토어에 변화가 있을 때 실행되는 콜백 함수
 * `getSnapshot` 현재 스토어의 데이터를 포착하여 반환해주는 함수
-* `getServerSnapshot(Optional)` 스토어의 초기 상태를 반환하는 함수 . 컴포넌트의 서버 렌더링이나 [hydration](https://www.gatsbyjs.com/docs/conceptual/react-hydration/) 시에만 사용됨.
+* `getServerSnapshot(Optional)` 스토어의 초기 상태를 반환하는 함수 . 컴포넌트의 서버 렌더링이나 [hydration](https://cozyzoey.kr/blog/react-server-components/#hydration) 시에만 사용됨.
 
 이를 바탕으로 theme을 관리하는 `themeStore`를 만들어서 관리했다. Gatsby는 빌드 타임에 서버에서 정적 렌더링을 하기 때문에 세 번째 인자인 getServerSnapshot도 입력해줘야 한다. 그렇지 않으면 오류가 발생한다.
 
