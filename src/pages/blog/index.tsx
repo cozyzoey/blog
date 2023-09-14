@@ -51,7 +51,6 @@ export const query = graphql`
             title
             templateKey
             date(formatString: "MMMM DD, YYYY")
-            featuredpost
             featuredimage
             tags
           }
