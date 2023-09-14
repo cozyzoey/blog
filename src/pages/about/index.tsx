@@ -1,6 +1,6 @@
 import Layout from 'components/layout'
 import * as items from 'data/about'
-import { Fragment } from 'react'
+import { Fragment, ReactNode } from 'react'
 import { AiFillGithub } from 'react-icons/ai'
 import genPageTitle from 'utils/genPageTitle'
 
@@ -11,15 +11,16 @@ export function Head() {
 export default function () {
   return (
     <Layout>
-      <article className='center-content text-lg'>
+      <article className='center-content text-xl'>
         <h1 className='text-4xl font-bold text-center mb-14'>
           <span className='print:hidden'>About</span>
           <span className='hidden print:inline-block'>김반석 기술 이력서</span>
         </h1>
         <section className='mb-10'>
           <p>
-            3년 차 프론트엔드 개발자 김반석입니다. HCI(Human-computer
-            Interaction)에 대한 관심으로 프론트엔드 개발을 하게 됐습니다.
+            3년 차 프론트엔드 개발자 김반석입니다. 다른 백그라운드를 갖고 있지만
+            HCI(Human-computer Interaction)에 대한 관심으로 프론트엔드 개발을
+            하게 됐습니다.
           </p>
           <p>
             이커머스와 교육 스타트업에서 근무하여 애자일 업무환경에 익숙합니다.
@@ -123,7 +124,7 @@ export default function () {
 }
 
 const Hr = () => {
-  return <div className='w-full h-px border-none bg-slate-100 my-10' />
+  return <div className='w-full h-px border-none bg-slate-200 my-10' />
 }
 
 const SectionTitle = ({ title }: { title: string }) => {
@@ -145,7 +146,7 @@ const CompanyIntro = ({
 }) => {
   return (
     <>
-      <p className='text-2xl font-bold mb-2 text-blue-800 dark:text-blue-600'>
+      <p className='text-3xl font-bold mb-2 text-blue-800 dark:text-blue-600'>
         {name} <span className='text-xl'>({duration})</span>
       </p>
       <p className='mb-4'>{desc}</p>
@@ -153,18 +154,40 @@ const CompanyIntro = ({
   )
 }
 
+export const PrintableLink = ({
+  href,
+  displayName,
+  ...props
+}: {
+  href: string
+  displayName: ReactNode
+} & JSX.IntrinsicElements['a']) => {
+  return (
+    <a
+      href={href}
+      target='_blank'
+      {...props}
+      className='inline-flex items-center'
+    >
+      <span className='underline'>{displayName}</span>
+      <span className='hidden print:block'>({href})</span>
+    </a>
+  )
+}
+
 const Items = ({ items }: { items: items.Item[] }) => {
-  return items.map(({ title, desc, outcomes, techs, github }, idx) => (
+  return items.map(({ title, coworkers, outcomes, techs, github }, idx) => (
     <Fragment key={idx}>
-      <h3 className='text-2xl font-semibold mt-10 mb-2 flex items-start gap-x-2'>
+      <h3 className='text-2xl font-semibold mt-10 mb-2 flex items-center gap-x-2'>
         {title}
+        {coworkers && <span>({coworkers}명)</span>}
         {github && (
-          <a href={github} target='_blank'>
-            <AiFillGithub className='w-[1.1em] h-[1.1em]' />
-          </a>
+          <PrintableLink
+            href={github}
+            displayName={<AiFillGithub className='w-[1.1em] h-[1.1em]' />}
+          />
         )}
-      </h3>{' '}
-      {desc && <p>{desc}</p>}
+      </h3>
       {outcomes && (
         <ol className='list-decimal list-inside'>
           {outcomes.map((outcome, idx) => (

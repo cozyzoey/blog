@@ -1350,6 +1350,10 @@ html {
   position: absolute;
 }
 
+.float-left {
+  float: left;
+}
+
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -1410,8 +1414,16 @@ html {
   display: block;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .flex {
   display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
 }
 
 .table {
@@ -1537,6 +1549,11 @@ html {
        column-gap: 0.5rem;
 }
 
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+}
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1579,6 +1596,11 @@ html {
 .bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 .object-cover {
@@ -1679,6 +1701,11 @@ html {
   line-height: 1.75rem;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1726,6 +1753,10 @@ html {
 .text-slate-900 {
   --tw-text-opacity: 1;
   color: rgb(15 23 42 / var(--tw-text-opacity));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .shadow {
@@ -1783,6 +1814,10 @@ html {
   --tw-prose-pre-bg: var(--tw-prose-invert-pre-bg);
   --tw-prose-th-borders: var(--tw-prose-invert-th-borders);
   --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
 }
 
 .prose-code\:before\:hidden :is(:where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
@@ -1846,6 +1881,22 @@ html {
 }
 
 @media print {
+  .print\:float-left {
+    float: left;
+  }
+
+  .print\:mr-4 {
+    margin-right: 1rem;
+  }
+
+  .print\:mr-1 {
+    margin-right: 0.25rem;
+  }
+
+  .print\:block {
+    display: block;
+  }
+
   .print\:inline-block {
     display: inline-block;
   }
