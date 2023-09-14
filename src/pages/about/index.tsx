@@ -18,9 +18,8 @@ export default function () {
         </h1>
         <section className='mb-10'>
           <p>
-            3년 차 프론트엔드 개발자 김반석입니다. 기계공학과 융합디자인
-            백그라운드를 갖고 있으며 HCI(Human-computer Interaction)에 대한
-            관심으로 프론트엔드 개발을 하게 됐습니다.
+            3년 차 프론트엔드 개발자 김반석입니다. HCI(Human-computer
+            Interaction)에 대한 관심으로 프론트엔드 개발을 하게 됐습니다.
           </p>
           <p>
             이커머스와 교육 스타트업에서 근무하여 애자일 업무환경에 익숙합니다.
@@ -70,7 +69,7 @@ export default function () {
           <Items items={items.skills} />
         </section>
 
-        <Hr />
+        {/* <Hr />
 
         <section>
           <SectionTitle title='Education' />
@@ -93,7 +92,7 @@ export default function () {
               </tr>
             </tbody>
           </table>
-        </section>
+        </section> */}
 
         <Hr />
 

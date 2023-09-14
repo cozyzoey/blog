@@ -18,7 +18,6 @@ export type Tech =
   | 'Firebase'
   | 'Decap CMS'
   | 'Gatsby'
-  | 'GraphQL'
   | 'Tailwind CSS'
   | 'Netlify'
 
@@ -156,7 +155,7 @@ export const projects: Item[] = [
   {
     title: '블로그',
     desc: '개인 블로그를 직접 운영하기 위한 초기 작업입니다. Git 기반의 Headless CMS(Decap CMS)를 적용했습니다.',
-    techs: ['Decap CMS', 'Gatsby', 'GraphQL', 'Tailwind CSS', 'Netlify'],
+    techs: ['Decap CMS', 'Gatsby', 'Tailwind CSS', 'Netlify'],
     github: 'https://github.com/cozyzoey/blog',
   },
 ]
