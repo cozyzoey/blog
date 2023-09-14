@@ -1,6 +1,7 @@
 import Layout from 'components/layout'
+import PrintableLink from 'components/printable-link'
 import * as items from 'data/about'
-import { Fragment, ReactNode } from 'react'
+import { Fragment } from 'react'
 import { AiFillGithub } from 'react-icons/ai'
 import genPageTitle from 'utils/genPageTitle'
 
@@ -124,7 +125,7 @@ export default function () {
 }
 
 const Hr = () => {
-  return <div className='w-full h-px border-none bg-slate-200 my-10' />
+  return <hr className='w-full h-px border-none bg-slate-200 my-10' />
 }
 
 const SectionTitle = ({ title }: { title: string }) => {
@@ -151,27 +152,6 @@ const CompanyIntro = ({
       </p>
       <p className='mb-4'>{desc}</p>
     </>
-  )
-}
-
-export const PrintableLink = ({
-  href,
-  displayName,
-  ...props
-}: {
-  href: string
-  displayName: ReactNode
-} & JSX.IntrinsicElements['a']) => {
-  return (
-    <a
-      href={href}
-      target='_blank'
-      {...props}
-      className='inline-flex items-center'
-    >
-      <span className='underline'>{displayName}</span>
-      <span className='hidden print:block'>({href})</span>
-    </a>
   )
 }
 

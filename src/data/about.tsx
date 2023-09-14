@@ -1,4 +1,4 @@
-import { PrintableLink } from 'pages/about'
+import PrintableLink from 'components/printable-link'
 import { ReactNode } from 'react'
 
 export type Tech =
@@ -115,7 +115,7 @@ export const projects: Item[] = [
       <>
         git 기반의 Headless CMS(Decap CMS)로 컨텐츠 관리,{' '}
         <PrintableLink
-          href='http://localhost:8000/blog/how-i-built-a-headless-cms-blog/'
+          href='http://cozyzoey.kr/blog/how-i-built-a-headless-cms-blog/'
           displayName='블로그 개발기'
         />
       </>,
