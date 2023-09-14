@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSyncExternalStore } from 'react'
-import themeStore, { Theme } from 'store/themeStore'
+import themeStore, { Theme } from 'store/theme-store'
 
 interface Props {
   children: (props: {

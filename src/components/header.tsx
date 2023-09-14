@@ -1,7 +1,7 @@
+import ThemeToggler from 'components/theme-toggler'
 import { Link } from 'gatsby'
 import { BiSolidMoon } from 'react-icons/bi'
 import { BsSunFill } from 'react-icons/bs'
-import ThemeToggler from 'utils/ThemeToggler'
 
 export default function () {
   return (
