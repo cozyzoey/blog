@@ -20,11 +20,11 @@ export default function ({
   return (
     <div className='center-content'>
       <section className='text-center'>
-        <div className='text-2xl font-light mb-4 text-slate-500 dark:text-slate-300'>
+        <div className='text-xl font-light mb-3 text-slate-500 dark:text-slate-300'>
           <time>{dayjs(date).format('MMM D, YYYY')}</time>
           {tags && <> &mdash; {tags.join(', ')}</>}
         </div>
-        <h1 className='text-5xl font-bold mb-20 dark:text-white'>{title}</h1>
+        <h1 className='text-4xl font-bold mb-20 dark:text-white'>{title}</h1>
       </section>
       <ContentComponent content={content} />
     </div>
