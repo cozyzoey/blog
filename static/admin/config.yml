@@ -52,5 +52,5 @@ collections:
               - - fetch_format: auto
                   quality: auto
                 - width: 360
-                  height: 180
+                  height: 240
                   crop: fit

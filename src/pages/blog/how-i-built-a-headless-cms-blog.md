@@ -6,7 +6,7 @@ tags:
   - Gatsby
   - Headless CMS
 date: 2023-09-12T12:32:20.798Z
-featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_180,w_360/v1694233352/blog/decap-cms_tpulmd.png
+featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_240,w_360/v1694233352/blog/decap-cms_tpulmd.png
 ---
 
 티스토리에 블로그를 작성하면서 편리하기도 하지만 커스텀에 제한이 있다는 점, 포스팅한 자료가 모두 티스토리에 종속된다는 점이 아쉽게 느껴지곤 했다. 때문에 항상 개인 블로그를 만들고 싶었다. 하지만 바닥부터 블로그를 만드는 일은 간단한 일이 아니다. 그래도 Headless CMS에 컨텐츠 관리를 위임하고 MVC로 구현한 후에 복잡한 기능들은 점차 붙여나가면 해볼만 하지 않을까?

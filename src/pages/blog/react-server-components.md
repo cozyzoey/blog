@@ -6,7 +6,7 @@ tags:
   - React
   - Next.js
 date: 2023-09-09T03:37:32.401Z
-featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_180,w_360/v1694230551/blog/rsc_arhjd3.png
+featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_240,w_360/v1694230551/blog/rsc_arhjd3.png
 ---
 
 **React Server Components(RSC)** 라는 용어는 두 가지 의미로 사용된다.
