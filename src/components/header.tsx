@@ -5,7 +5,7 @@ import { BsSunFill } from 'react-icons/bs'
 
 export default function () {
   return (
-    <header className='pt-6 pb-4 px-4 md:px-8 flex items-center justify-between border-solid border-b border-slate-100 print:hidden dark:text-white'>
+    <header className='pt-6 pb-4 px-4 md:px-8 flex items-center justify-between border-solid border-b border-slate-200 print:hidden dark:text-white'>
       <Link to='/' className='text-xl font-medium'>
         CozyZoey
       </Link>

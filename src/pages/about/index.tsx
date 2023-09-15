@@ -1,5 +1,6 @@
 import Layout from 'components/layout'
 import PrintableLink from 'components/printable-link'
+import Tags from 'components/tags'
 import * as items from 'data/about'
 import { Fragment } from 'react'
 import { AiFillGithub } from 'react-icons/ai'
@@ -147,7 +148,7 @@ const CompanyIntro = ({
 }) => {
   return (
     <>
-      <p className='text-3xl font-bold mb-2 text-blue-800 dark:text-blue-600'>
+      <p className='text-2xl font-extrabold mb-2 text-blue-800 dark:text-blue-600'>
         {name} <span className='text-xl'>({duration})</span>
       </p>
       <p className='mb-4'>{desc}</p>
@@ -175,18 +176,7 @@ const Items = ({ items }: { items: items.Item[] }) => {
           ))}
         </ol>
       )}
-      {techs && (
-        <ul className='flex gap-1.5 flex-wrap mt-2'>
-          {techs.map((tech, idx) => (
-            <li
-              key={idx}
-              className='text-base py-0.5 px-2 rounded-full bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-300'
-            >
-              {tech}
-            </li>
-          ))}
-        </ul>
-      )}
+      {techs && <Tags tags={techs} className='mt-2' />}
     </Fragment>
   ))
 }
