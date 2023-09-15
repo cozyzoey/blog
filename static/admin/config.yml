@@ -40,6 +40,7 @@ collections:
             default_transformations:
               - - fetch_format: auto
                   quality: auto
+      - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - label: 'Featured Image'
@@ -50,6 +51,6 @@ collections:
             default_transformations:
               - - fetch_format: auto
                   quality: auto
-                - width: 600
-                  height: 400
+                - width: 360
+                  height: 180
                   crop: fit
