@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: Preventing Forced Reflow
+title: 강제 리플로우 방지
 tags:
   - Performance
   - Web Vitals
@@ -38,21 +38,21 @@ featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/v1694765950/blo
   console.log(elem.clientWidth);
 ```
 
-브라우저는 이전 프레임(frame)에서 계산된 레이아웃 값을 기억하고 있다. 그래서 돔 요소의 사이즈나 위치를 쿼리하면 이전 해당 값을 참조할 수 있게 된다. 그런데 돔을 변경하면(ex 요소 삽입, 사이즈나 위치 수정) 이전에 계산한 레이아웃 캐시가 더이상 유효하지 않게 된다. 이제 정확한 `clientWidth` 값을 알아내려면 변경된 돔을 반영하도록 스타일과 레이아웃 계산을 먼저 수행해야 하는 것이다. 이것이 강제 리플로우다.
+브라우저는 이전 프레임(frame)에서 계산된 레이아웃 값을 기억하고 있다. 그래서 돔 요소의 사이즈나 위치를 쿼리하면 이전에 캐시된 값을 참조할 수 있게 된다. 그런데 돔을 변경하면(ex 요소 삽입, 사이즈나 위치 수정) 이전에 계산한 레이아웃 캐시가 더이상 유효하지 않게 된다. 이제 정확한 `clientWidth` 값을 알아내려면 업데이트된 돔을 반영하도록 스타일과 레이아웃 계산을 수행해야 하는 것이다. 이것이 강제 리플로우다.
 
 아래 스크린샷을 보면 노란색 자바스크립트 단계에서 보라색으로 표시된 스타일과 레이아웃을 수행하고 있음을 확인할 수 있다.
 
 ![스크린샷](https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/v1694788648/blog/forced-reflow-screenshot_mysg1l.png "자바스크립트 단계에서 스타일과 레이아웃 수행")
 
-단지 돔 요소의 너비를 알아내려고 했을 뿐인데 브라우저는 전체 돔을 재계산해야 되는 것이다.  불필요할 뿐만 아니라 병목을 일으킬 여지가 있다.
+단지 돔 요소의 너비를 알아내려고 했을 뿐인데 브라우저는 전체 돔을 재계산해야 되는 것이다. 불필요할 뿐만 아니라 병목을 일으킬 여지가 있다.
 
-돔 측정은 이밖에도 박스 모델 측정(`elem.getBoundingClientRect`), 스크롤 관련(`elem.scrollIntoView()`), 윈도우 측정(`window.scrollY`) 등이 있다. 상세한 내용은 [여기](https://gist.github.com/paulirish/5d52fb081b3570c81e3a)를 참조하면 된다.
+돔을 읽는 동작은 이밖에도 박스 모델 측정(`elem.getBoundingClientRect`), 스크롤 관련(`elem.scrollIntoView()`), 윈도우 측정(`window.scrollY`) 등이 있다. 상세한 내용은 [여기](https://gist.github.com/paulirish/5d52fb081b3570c81e3a)를 참조하면 된다.
 
 ## 강제 리플로우를 방지하려면?
 
-이러한 이유로 돔을 먼저 측정한 다음에 돔을 변경하도록 해야 한다.
+이러한 이유로 돔을 먼저 읽은 다음에 쓰기를 수행해야 한다.
 
-그런데 불가피하게 돔을 변경한 후에 측정이 필요한 경우도 있을 것이다. 그러한 경우에는 `setTimeout`이나 `requestAnimationFrame`을 사용하여 돔 측정을 돔 변경과 다른 프레임에서 수행하는 방법이 있다.
+그런데 불가피하게 돔을 변경한 후에 측정이 필요한 경우도 있을 것이다. 그러한 경우에는 돔 읽기 동작을 `setTimeout`이나 `requestAnimationFrame`의 콜백으로 등록하여 돔 읽기 태스크를 쓰기 태스크와 분리하는 방법이 있다. 등록한 콜백은 브라우저의 이벤트 루프에서 각각 매크로 태스크 큐와 애니메이션 프레임에 적재된다.
 
 ## 참조
 
