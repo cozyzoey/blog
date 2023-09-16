@@ -1,10 +1,12 @@
 ---
 templateKey: blog-post
 title: 강제 리플로우 방지
+description: 브라우저에서 발생하는 강제 리플로우 개념과 피하는 방법 설명
 tags:
   - Performance
   - Web Vitals
 date: 2023-09-15T08:02:51.591Z
+updated: 2023-09-16T08:27:15.725Z
 featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/v1694765950/blog/bottleneck_lckryb.webp
 ---
 브라우저 렌더링 과정 중 레이아웃(layout)은 요소의 크기와 페이지 내 위치 등 요소의 기하학적 정보를 파악하는 곳이다. 이 프로세스를 레이아웃 혹은 리플로우라고 한다.
