@@ -1,12 +1,14 @@
 ---
 templateKey: blog-post
 title: Headless CMS 블로그 개발기
+description: Decap CMS와 Gatsby로 블로그 만들기, useSyncExternalStore를 사용한 다크 모드 구현.
 tags:
   - Gatsby
   - Headless CMS
 date: 2023-09-12T12:32:20.798Z
-featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_400,w_600/v1694233352/blog/decap-cms_tpulmd.png
+featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c_fit,h_240,w_360/v1694233352/blog/decap-cms_tpulmd.png
 ---
+
 티스토리에 블로그를 작성하면서 편리하기도 하지만 커스텀에 제한이 있다는 점, 포스팅한 자료가 모두 티스토리에 종속된다는 점이 아쉽게 느껴지곤 했다. 때문에 항상 개인 블로그를 만들고 싶었다. 하지만 바닥부터 블로그를 만드는 일은 간단한 일이 아니다. 그래도 Headless CMS에 컨텐츠 관리를 위임하고 MVC로 구현한 후에 복잡한 기능들은 점차 붙여나가면 해볼만 하지 않을까?
 
 기술 스택을 정하기 위해서 블로그에 필요한 기능들을 생각해보았다.
@@ -15,15 +17,15 @@ featuredimage: https://res.cloudinary.com/dftuawd1d/image/upload/f_auto,q_auto/c
 
 1. 무료 플랜으로 운영할 수 있어야 한다.
 2. 플랫폼에 종속되지 않고 다른 플랫폼으로 옮기는 것이 가능해야 한다.
-3. wysiwyg 에디터 UI가 글쓰기에 편해야 한다. (ex 노션) 
+3. wysiwyg 에디터 UI가 글쓰기에 편해야 한다. (ex 노션)
 4. 에디터가 한글을 지원해야 한다. (지원하지 않는 에디터도 있다!)
 5. 블로그 포스트는 정적 페이지로 SEO를 지원해야 한다.
 
 ## Headless CMS
 
-Headless CMS는 프론트엔드 개발자에게 날개를 달아주는 서비스다. 백엔드를 걱정하지 않고도 컨텐츠를 관리할 수 있고 프론트엔드는 커스텀하게 만들 수 있다. 
+Headless CMS는 프론트엔드 개발자에게 날개를 달아주는 서비스다. 백엔드를 걱정하지 않고도 컨텐츠를 관리할 수 있고 프론트엔드는 커스텀하게 만들 수 있다.
 
-Headless CMS는 크게 API Driven 방식과 Git-based 방식으로 나뉜다. 전자는 컨텐츠에 관한 CRUD API를 제공하고, 후자는 깃 버전 관리와 연동하여 컨텐츠를 `.md`나 `.mdx` 포맷으로 리모트 리포에 저장한다. 
+Headless CMS는 크게 API Driven 방식과 Git-based 방식으로 나뉜다. 전자는 컨텐츠에 관한 CRUD API를 제공하고, 후자는 깃 버전 관리와 연동하여 컨텐츠를 `.md`나 `.mdx` 포맷으로 리모트 리포에 저장한다.
 
 시중에 나와 있는 Headless CMS는 [Jamstack](https://jamstack.org/headless-cms/) 사이트에 잘 나와 있다. 유명한 것들 중에서 무료 플랜을 지원하는 것들을 고르니 4-5개로 추려졌다.
 
@@ -46,7 +48,7 @@ Decap CMS와 Gatsby정해지고 나니 배포는 크게 고민하지 않고 이�
 
 만들고자 하는 블로그는 UI가 단순하다. UI가 단순한 만큼 스타일도 별도의 CSS 파일을 만들거나 CSS-in-JS를 작성하는 대신 가장 단순한 방법을 원했다. Tailwind CSS에 사전 정의된 클래스명으로도 충분하다고 판단했다. 실제로 Tailwind CSS를 적용하니 UI 개발 시간이 빨랐고, 컬러나 사이즈 등의 단위가 정해져 있어서 자연스럽게 디자인 일관성을 유지할 수 있었다.
 
-고민이 필요한 부분은 wysiwyg였다. 실제 렌더링되는 블로그 포스트와 CMS에서 컨텐츠를 작성할 때 나타나는 프리뷰의 UI를 컨트롤해야한다. Tailwind CSS로 어떻게 wysiwyg을 구현할 수 있을까? 볼드, 헤딩, 기울임 등에 해당하는 HTML 태그마다 CSS를 일일이 정의하는 것보다 깔끔한 방식으로 구현하고 싶었다. 
+고민이 필요한 부분은 wysiwyg였다. 실제 렌더링되는 블로그 포스트와 CMS에서 컨텐츠를 작성할 때 나타나는 프리뷰의 UI를 컨트롤해야한다. Tailwind CSS로 어떻게 wysiwyg을 구현할 수 있을까? 볼드, 헤딩, 기울임 등에 해당하는 HTML 태그마다 CSS를 일일이 정의하는 것보다 깔끔한 방식으로 구현하고 싶었다.
 
 찾아보니 [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin)라는 좋은 대안이 있었다. 이를 블로그 포스트 컨텐츠를 렌더하는 컴포넌트에 적용하였다.
 
@@ -78,7 +80,7 @@ export default function ({ content }: ContentRendererProps) {
 
 ```javascript
 // cms.js
-CMS.registerPreviewStyle("preview.css");
+CMS.registerPreviewStyle('preview.css')
 ```
 
 ## useSyncExternalStore로 Dark Theme 구현
@@ -99,9 +101,9 @@ module.exports = {
 
 [useSyncExternalSore](https://react.dev/reference/react/useSyncExternalStore) 훅은 세 개의 인자를 받는다.
 
-* `subscribe` 스토어를 구독하여 스토어에 변화가 있을 때 실행되는 콜백 함수
-* `getSnapshot` 현재 스토어의 데이터를 포착하여 반환해주는 함수
-* `getServerSnapshot(Optional)` 스토어의 초기 상태를 반환하는 함수 . 컴포넌트의 서버 렌더링이나 [hydration](https://cozyzoey.kr/blog/react-server-components/#hydration) 시에만 사용됨.
+- `subscribe` 스토어를 구독하여 스토어에 변화가 있을 때 실행되는 콜백 함수
+- `getSnapshot` 현재 스토어의 데이터를 포착하여 반환해주는 함수
+- `getServerSnapshot(Optional)` 스토어의 초기 상태를 반환하는 함수 . 컴포넌트의 서버 렌더링이나 [hydration](https://cozyzoey.kr/blog/react-server-components/#hydration) 시에만 사용됨.
 
 이를 바탕으로 theme을 관리하는 `themeStore`를 만들어서 관리했다. Gatsby는 빌드 타임에 서버에서 정적 렌더링을 하기 때문에 세 번째 인자인 getServerSnapshot도 입력해줘야 한다. 그렇지 않으면 오류가 발생한다.
 
@@ -122,7 +124,7 @@ export default {
 }
 ```
 
-themStore는 ThemeToggler라는 HOC 컴포넌트에서 소비하도록 하였다. 
+themStore는 ThemeToggler라는 HOC 컴포넌트에서 소비하도록 하였다.
 
 ```typescript
 // ThemeToggler.tsx
@@ -169,17 +171,11 @@ export default function ({ children }: Props) {
     <label className='cursor-pointer text-slate-400 dark:text-slate-300 xl:hover:text-slate-500'>
       <input
         type='checkbox'
-        onChange={(e) =>
-          toggleTheme(e.target.checked ? 'dark' : 'light')
-        }
+        onChange={(e) => toggleTheme(e.target.checked ? 'dark' : 'light')}
         checked={theme === 'dark'}
         className='hidden'
       />
-      {theme === 'dark' ? (
-        <BsSunFill size={24} />
-      ) : (
-        <BiSolidMoon size={24} />
-      )}
+      {theme === 'dark' ? <BsSunFill size={24} /> : <BiSolidMoon size={24} />}
     </label>
   )}
 </ThemeToggler>
@@ -212,7 +208,9 @@ media_library:
 참고로 위에 들어가는 Cloudinary의 cloud_name과 api_key는 퍼블릭하게 공개되어도 무방하다. ([Security Considerations](https://github.com/decaporg/decap-cms/blob/master/website/content/docs/cloudinary.md#security-considerations)) 어차피 Cloudinary 계정으로 다시 인증을 받는 절차가 있기 때문이다.
 
 ## 기술 블로그 기술 스택
-결과적으로 블로그를 만드는 데 사용된 기술 스택은 아래와 같이 정리할 수 있겠다. 
+
+결과적으로 블로그를 만드는 데 사용된 기술 스택은 아래와 같이 정리할 수 있겠다.
+
 - **Decap CMS** 컨텐츠 관리
 - **Gatsby** 프론트엔드 프레임워크
 - **TailwindCSS** 스타일

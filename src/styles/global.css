@@ -2,20 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-size: 14px;
-    @screen md {
-      font-size: 15px;
-    }
-    @screen lg {
-      font-size: 16px;
-    }
-  }
-}
-
 @layer utilities {
   .center-content {
-    @apply max-w-screen-lg px-4 mx-auto md:px-8;
+    @apply max-w-screen-md px-4 mx-auto md:px-8;
   }
 }

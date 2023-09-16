@@ -12,13 +12,14 @@ export default function ({
     <Layout>
       <div className='center-content'>
         <h1 className='text-4xl text-center font-bold mb-14'>Blog</h1>
-        <ul className='grid justify-center grid-col-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 place-items-center'>
+        <ul className='flex flex-col gap-y-12'>
           {posts.map(({ node }) => {
             return (
               <BlogPostCard
                 img={node.frontmatter?.featuredimage ?? ''}
                 slug={node.fields?.slug ?? '/blog'}
                 title={node.frontmatter?.title ?? ''}
+                desc={node.frontmatter?.description ?? ''}
                 date={node.frontmatter?.date ?? ''}
                 tags={node.frontmatter?.tags ?? ['']}
                 key={node.id}
@@ -49,8 +50,9 @@ export const query = graphql`
           }
           frontmatter {
             title
+            description
             templateKey
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMM DD, YYYY")
             featuredimage
             tags
           }

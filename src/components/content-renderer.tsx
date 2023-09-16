@@ -5,7 +5,7 @@ export interface ContentRendererProps {
 }
 
 const prose =
-  'prose prose-xl max-w-none prose-slate prose-code:before:hidden prose-code:after:hidden dark:prose-invert'
+  'prose prose-lg max-w-none prose-slate prose-code:before:hidden prose-code:after:hidden dark:prose-invert'
 
 export default function ({ content }: ContentRendererProps) {
   return <div className={prose}>{content}</div>

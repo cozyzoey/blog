@@ -15,8 +15,10 @@ module.exports = {
           css: {
             ':not(pre) > code.language-text': {
               padding: '0.2em 0.4em !important',
-              color: `${theme('colors.slate.700')} !important`,
-              background: `${theme('colors.slate.100')} !important`,
+              color: `${theme('colors.slate.950')} !important`,
+              background: `${theme('colors.orange.100')} !important`,
+              fontSize: '0.9em',
+              fontWeight: '400',
             },
           },
         },
