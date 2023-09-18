@@ -18,17 +18,18 @@ export default function () {
           <span className='print:hidden'>About</span>
           <span className='hidden print:inline-block'>김반석 기술 이력서</span>
         </h1>
-        <section className='mb-10'>
+        <section className='mb-10 flex flex-col gap-y-3'>
           <p>
-            3년 차 프론트엔드 개발자 김반석입니다. 다른 백그라운드를 갖고 있지만
-            HCI(Human-computer Interaction)에 대한 관심으로 프론트엔드 개발을
-            하게 됐습니다.
+            문제 해결을 좋아하는 개발자 김반석입니다. 기계공학과 융합디자인
+            백그라운드를 갖고 있지만, HCI(Human-computer Interaction)에 대한
+            관심으로 프론트엔드 개발을 시작하게 되었습니다.
           </p>
           <p>
-            이커머스와 교육 스타트업에서 근무하여 애자일 업무환경에 익숙합니다.
-            웹 성능 개선 경험이 있으며, GTM을 이해하고 있어서 효과적으로
-            트래킹에 대응할 수 있습니다. 고질적이고 반복되는 문제 해결을
-            좋아합니다.
+            이커머스와 교육 분야에서 경험을 쌓았고 스타트업에서 근무하며 애자일
+            업무 환경에 능숙합니다. Next.js로 SSG와 SSR을 대응할 수 있으며
+            테스트와 스토리북을 활용하여 컴포넌트를 개발할 수 있습니다. 웹 성능
+            개선에 대한 경험이 있고, GTM에 대한 이해도를 갖추고 있어서
+            효과적으로 트래킹에 대응할 수 있습니다.
           </p>
         </section>
 
@@ -52,7 +53,7 @@ export default function () {
           <CompanyIntro
             name='비컨'
             duration='2021.03 ~ 2022.07'
-            desc='사용자의 두피 문진과 진단기기 측정 결과를 AI 분석하여 맞춤형
+            desc='사용자의 두피 문진과 진단기기 측정을 AI 분석하여 맞춤형
             헤어제품을 추천하고 판매하는 서비스입니다.'
           />
           <Items items={items.becon} />
@@ -72,7 +73,7 @@ export default function () {
           <Items items={items.skills} />
         </section>
 
-        {/* <Hr />
+        <Hr />
 
         <section>
           <SectionTitle title='Education' />
@@ -95,7 +96,7 @@ export default function () {
               </tr>
             </tbody>
           </table>
-        </section> */}
+        </section>
 
         <Hr />
 
