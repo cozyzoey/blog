@@ -106,7 +106,6 @@ setTimeout의 콜백은 마이크로태스크에 적재될 것이고 이벤트 �
 ## 참조
 - [concept event loop in category javascript](https://livebook.manning.com/concept/javascript/event-loop)
 - [이벤트 루프](https://developer.mozilla.org/ko/docs/Web/JavaScript/Event_loop)
-- [Event Loop Fundamentals
-](https://webperf.tips/tip/event-loop/)
+- [Event Loop Fundamentals](https://webperf.tips/tip/event-loop/)
 - [자바스크립트 이벤트 루프 동작 구조 & 원리 끝판왕](https://inpa.tistory.com/entry/%F0%9F%94%84-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%A3%A8%ED%94%84-%EA%B5%AC%EC%A1%B0-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC)
 - [60fps and Device Refresh Rates](https://web.dev/rendering-performance/#60fps-and-device-refresh-rates)
