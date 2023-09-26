@@ -20,9 +20,9 @@ export default function () {
         </h1>
         <section className='mb-10 flex flex-col gap-y-3'>
           <p>
-            문제 해결을 좋아하는 개발자 김반석입니다. 기계공학과 융합디자인
-            백그라운드를 갖고 있지만, HCI(Human-computer Interaction)에 대한
-            관심으로 프론트엔드 개발을 시작하게 되었습니다.
+            독학으로 개발자가 된 김반석입니다. 다른 백그라운드를 갖고 있지만,
+            HCI(Human-computer Interaction)에 대한 관심으로 프론트엔드 개발을
+            시작하게 되었습니다.
           </p>
           <p>
             이커머스와 교육 분야에서 경험을 쌓았고 스타트업에서 근무하며 애자일
